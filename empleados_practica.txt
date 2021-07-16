@@ -1,3 +1,8 @@
 Juan|Quito,Cuenca|masculino,23|Data Visualization:60,Tensorflow:200, Proyectos:400|Proyecto1A:jefedesarrolladorresponsable
 Gabriela|Guayaquil|femenino,29|BPM:100|Proyecto1B:coordinadora
 Stalin|Cuenca,Quito|masculino,23|Tensorflow:40, Typescript:150, Java:250|Proyecto1A:jefedesarrolladortesting
+
+load data inpath '/prueba/empleados_practica.txt' into table empleados_practica;
+
+SELECT empleados_practica.nombre, empleados_practica.lugar_trabajo from empleados_practica WHERE array_contains(empleados_practica.proyecto_cargo["Proyecto1A"],'desarrollador') and empleados_practica.curso_horas["Tensorflow"] > 35;
+
