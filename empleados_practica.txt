@@ -1,0 +1,3 @@
+Juan|Quito,Cuenca|masculino,23|Data Visualization:60,Tensorflow:200, Proyectos:400|Proyecto1A:jefedesarrolladorresponsable
+Gabriela|Guayaquil|femenino,29|BPM:100|Proyecto1B:coordinadora
+Stalin|Cuenca,Quito|masculino,23|Tensorflow:40, Typescript:150, Java:250|Proyecto1A:jefedesarrolladortesting
