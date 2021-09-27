@@ -1,0 +1,128 @@
+// HTML
+// Max-height solamente en los col
+// Los checkbox por filas
+
+<div class="row mb-1 align-items-end justify-content-between">
+    <div class="col-auto">
+        <h4 class="text-info">Reporte Contactabilidad</h4>
+        </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 categoria">
+            <span>CATEGORIA</span>
+            <div class="row" *ngFor="let categoria of categorias"> /// AQUI HACER EL NGFOR y se eliminarían los row de aca abajo
+                <label>
+                    <input type="radio" name="categoria" [value]="categoria" (click)="onCategoriaChange(categoria)" name="categoria"/>
+                    Liviano
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesado
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesadisimo
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesadisimo
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesadisimo
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesadisimo
+                </label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <span>CATEGORIA</span>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesadisimo
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <input type="radio" name="categoria"/>
+                    Pesadisimo
+                </label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            PROCEDENCIA
+        </div>
+        <div class="col-md-2">
+            PROCEDENCIA
+        </div>
+        <div class="col-md-2">
+            PROCEDENCIA
+        </div>
+        <div class="col-md-2">
+            PROCEDENCIA
+        </div>
+    </div>
+</div>
+
+// CSS
+
+.categoria{
+    max-height: 100px;
+    background-color: grey;
+    overflow-y: auto;
+}
+
+
+// Dentro del component
+
+// En el ngOnInit llamar a cargar el listado inicial
+
+// Luego por cada 
+
+
+categorias:String[];
+
+
+ngOnInit() {
+    //Cargar todas las listas inicialmente llamando a la vista (WS)
+
+    this.reportesService.getListaFiltros().subscribe(
+      response =>{
+        console.log(response)
+        this.categorias=response.data.categoriasList;
+      });
+    this.categorias = ["Livianos", "Livianos1"];
+    this.categorias1 = ["Livianos", "Livianos1"];
+  }
+
+// Cuando se seleccione uno de ellos se llama a un ws y enseguida se actualizan todas las demas listas
+  onCategoriaChange(event: string) {
+    console.log(event);
+    if (event === "Livianos") {
+      this.categorias1 = ["Livianos", "Pesados", "Pesados1"];
+    } else {
+      this.categorias1 = ["Livianos", "Pesos", "Pesadisimo"];
+    }
+  }
+
+
+
+
+
+
+
+
